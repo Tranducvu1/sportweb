@@ -112,8 +112,8 @@ This project is licensed under the [MIT License](LICENSE). Feel free to use and 
 
 For any queries or issues, please contact:
 
-- **Email**: tranducvuht@gmail.comcom
-- **GitHub**: [TRanducvu1TRanducvu1](https://github.com/Tranducvu1)
+- **Email**: tranducvuht@gmail.com
+- **GitHub**: [Tranducvu1](https://github.com/Tranducvu1)
 
 ## Acknowledgments
 
