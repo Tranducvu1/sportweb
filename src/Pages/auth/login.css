@@ -1,0 +1,27 @@
+label.required { color: #000; }
+ul.errors li { padding: 10px 10px 0 10px; color: red; }
+.login_sign {
+    background: #7fc243;
+    border-radius: 0;
+    color: #fff;
+    border: none;
+    margin-top: 5px;
+}
+.login_sign:hover { background: #ff6517; }
+.loginFb, .loginGg {
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    width: 96px;
+    text-align: center !important;
+    color: #FFF !important;
+}
+.loginFb { background-color: #3B5998; }
+.loginGg { 
+    background-color: #E02F2F;
+    margin: 10px 0 0 10px;
+}
+.loginFb i, .loginGg i {
+    margin: 0 5px 0 0;
+    color: #fff;
+}
