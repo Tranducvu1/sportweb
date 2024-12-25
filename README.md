@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+# Sport Website - ReactJS Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the **Sport Website** project! This ReactJS-based application is built to deliver sports-related data fetched dynamically from APIs. Whether you want to explore live sports news, match schedules, or statistics about your favorite teams and players, this web application provides a seamless user experience.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Real-Time Data Fetching**: Fetch live data using APIs for news, match schedules, scores, and statistics.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Customizable Components**: Modular React components for easy updates and scalability.
+- **Efficient State Management**: Built-in state handling for smooth and fast rendering.
 
-### `npm start`
+## Technology Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**:
+  - ReactJS (v17+)
+  - React Router for navigation
+  - Axios for API calls (alternatively Fetch API can be used)
+  - CSS/SCSS for styling
+  - Ant Design or Material-UI for UI components (optional)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Backend/Third-Party APIs**:
+  - Integration with third-party sports data providers.
 
-### `npm test`
+## Installation and Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+Ensure you have the following tools installed:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Node.js** (v14 or later)
+- **npm** or **yarn** package manager
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Steps
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone the Repository**:
+    ```bash
+    git clone https://github.com/Tranducvu1/sportweb.git
+    cd sportweb
+    ```
 
-### `npm run eject`
+2. **Install Dependencies**:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **Environment Setup**:
+    Create a `.env` file in the root directory and add the following configuration:
+    ```env
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. **Run the Development Server**:
+    ```bash
+    npm start
+    # or
+    yarn start
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   Open your browser and navigate to `http://localhost:3000`.
 
-## Learn More
+### Build for Production
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To generate a production build:
+```bash
+npm run build
+# or
+yarn build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The optimized files will be in the `build` directory.
 
-### Code Splitting
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```plaintext
+sportweb/
+├── public/             # Static assets
+├── src/                # Main application code
+│   ├── components/     # Reusable UI components
+│   ├── pages/          # Application pages (e.g., Home, Stats, News)
+│   ├── services/       # API services and utility functions
+│   ├── assets/         # Images, icons, and other static assets
+│   ├── App.js          # Main application component
+│   └── index.js        # Entry point
+└── package.json        # Project metadata and dependencies
+```
 
-### Analyzing the Bundle Size
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+We welcome contributions to enhance this project! To contribute:
 
-### Making a Progressive Web App
+1. Fork the repository.
+2. Create a new branch:
+    ```bash
+    git checkout -M main
+    ```
+3. Commit your changes:
+    ```bash
+    git commit -m "Add new feature"
+    ```
+4. Push the branch:
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+5. Create a pull request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## License
 
-### Advanced Configuration
+This project is licensed under the [MIT License](LICENSE). Feel free to use and modify it as per your needs.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contact
 
-### Deployment
+For any queries or issues, please contact:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Email**: tranducvuht@gmail.comcom
+- **GitHub**: [TRanducvu1TRanducvu1](https://github.com/Tranducvu1)
 
-### `npm run build` fails to minify
+## Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Special thanks to [SportsData.io](https://sportsdata.io) for providing rich sports API resources.
+- The [ReactJS Documentation](https://reactjs.org/docs/getting-started.html) for its extensive resources.
+
+---
+
+We hope you find this project useful and inspiring for your own web development journey. Happy coding!
