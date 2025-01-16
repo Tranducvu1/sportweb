@@ -6,7 +6,7 @@ function Header({ userName }) {
   return (
     <>
       <nav className="navbar navbar-inverse navbar-fixed-top">
-        <div className="container">
+        <div>
           <div className="navbar-header">
             <button className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span className="icon-bar"></span>
@@ -23,7 +23,7 @@ function Header({ userName }) {
                 </a>
               </li>
               <li>
-                <a href="/logout">
+                <a href="/login">
                   <span className="glyphicon glyphicon-log-out"></span> Đăng xuất
                 </a>
               </li>

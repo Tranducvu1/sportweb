@@ -29,7 +29,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:4444/api/auth/login', { email, password });
+      const response = await axios.post('http://localhost:4444/api/v1/auth/login', { email, password });
       const { access_token, role, id, hoten, refresh_token } = response.data;
       localStorage.setItem('id', id);
       localStorage.setItem('hoten', hoten);
@@ -42,8 +42,8 @@ const LoginForm = () => {
       if (role.includes("ADMIN")) {
         navigate(config.routes.admin);
         localStorage.removeItem('role');
-      } else {
-        navigate(config.routes.sport);
+      } else if(role.includes("MEMBER")){
+        navigate(config.routes.homepage);
         localStorage.removeItem('role');
       }
     } catch (error) {

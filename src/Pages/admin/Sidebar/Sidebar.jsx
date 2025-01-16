@@ -30,7 +30,7 @@ const Sidebar = () => {
       title: 'Banner'
     },
     {
-      path: '/admin/tai-khoan',
+      path: '/admin/usermanager',
       icon: 'glyphicon-th-list',
       title: 'Quản lý Tài khoản',
       isMainMenu: true

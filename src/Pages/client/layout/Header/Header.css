@@ -1,0 +1,156 @@
+/* Định dạng cho label.required */
+label.required {
+    color: #000;
+}
+
+/* Hiển thị lỗi trong list ul */
+ul.errors li {
+    padding: 10px 10px 0 10px;
+    color: red;
+}
+
+#sign .f ul li {
+    margin-bottom: 5px;
+}
+
+#sign .f ul li label {
+    margin-bottom: 5px;
+}
+
+.login_sign {
+    background: #7fc243;
+    border-radius: 0;
+    color: #fff;
+    border: none;
+    margin-top: 5px;
+}
+
+.login_sign:hover {
+    background: #ff6517;
+}
+
+h2, h3 {
+    color: #333333;
+    font-size: 25px;
+}
+
+@media (max-width: 768px) {
+    #sign, .div_reg_area {
+        text-align: center;
+    }
+
+    .div_reg_area {
+        margin-top: 20px;
+    }
+}
+
+.selected-category-products {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.selected-category-products ul {
+    list-style-type: none;
+}
+
+.selected-category-products li {
+    margin-bottom: 10px;
+}
+
+.selected-category-products h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+/* Các định dạng liên quan đến menu, dropdown */
+.tp_menu_item {
+    position: relative;
+    font-size: 23px;
+}
+
+.tp_menu_item:hover .nav-dropdown {
+    display: block; 
+    background-color: white;
+    height: 1̀50px;
+    width: 200px;
+    color: white; /* Thay đổi màu chữ khi hover */
+    transform: scale(1.05); /* Tăng kích thước khi hover */
+    border-radius: 5px; 
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà */
+}
+
+/* Định dạng mặc định của dropdown */
+.tp_menu .nav-dropdown {
+    display: none; /* Ẩn các mặt hàng mặc định */
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    list-style: none;
+
+}
+
+.tp_menu_item a {
+    display: inline-block;
+    padding: 50px;
+    margin-right: 20px;
+    font-size: 23vw;
+    color: #333;
+    text-decoration: none;
+
+}
+
+/* Định dạng liên kết trong dropdown menu */
+.nav-dropdown li {
+    font-size: 23px;
+    padding: 8px;
+}
+
+.nav-dropdown li a {
+    color: #555;
+}
+
+.nav-dropdown li a:hover {
+    color: #007bff; /* Thay đổi màu sắc khi hover vào mặt hàng */
+}
+
+
+
+/* Giảm khoảng cách giữa các thẻ li trong menu dropdown */
+.tp_menu .nav-dropdown li {
+    padding: 8px; /* Khoảng cách trong các thẻ li */
+    margin: 0; /* Loại bỏ khoảng cách ngoài (margin) của các thẻ li */
+   
+}
+
+.tp_menu .nav-dropdown li a {
+    padding: 5px 10px; /* Điều chỉnh khoảng cách trong liên kết (a) */
+    font-size: 14px; /* Thay đổi kích thước chữ nếu cần */
+}
+
+
+.searchform__header {
+    position: relative;
+    width: 270px;
+    font-size: 14px;
+}
+
+#text-search {
+    flex-grow: 1;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.tp_button {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.tp_button i {
+    font-size: 18px;
+}

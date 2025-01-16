@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../../../css general/tp/T0194/css/stores/430171bce.css';
+import '../../../../../css general/tp/T0194/css/stores/430171bce.css';
 
 function SearchBar(){
     const [searchTerm, setSearchTerm] = useState('');

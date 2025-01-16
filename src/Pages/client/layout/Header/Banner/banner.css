@@ -1,0 +1,189 @@
+/* Container for the banner carousel */
+.relative {
+    position: relative; /* Allows for absolute positioning of child elements */
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .h-64 {
+    height: 16rem; /* Base height for the carousel */
+  }
+  
+  .sm\:h-80 {
+    height: 20rem; /* Height on small screens and up */
+  }
+  
+  /* Style for the navigation buttons */
+  .absolute {
+    position: absolute;
+  }
+  
+  .left-4 {
+    left: 1rem; /* Left margin for the button */
+  }
+  
+  .right-4 {
+    right: 1rem; /* Right margin for the button */
+  }
+  
+  .top {
+    top: 50%; /* Center vertically */
+  }
+  
+  .transform {
+    transform: transform; /* Enable transforms */
+  }
+  
+  .-translate-y {
+    transform: translateY(-50%); /* Vertically center the button */
+  }
+  
+  .bg-white {
+    background-color: white;
+  }
+  
+  .shadow-lg {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Adds shadow */
+  }
+  
+  .rounded-full {
+    border-radius: 9999px; /* Circular shape for buttons */
+  }
+  
+  .flex {
+    display: flex; /* Flexbox layout */
+  }
+  
+  .items-center {
+    align-items: center; /* Vertically center the items inside the button */
+  }
+  
+  .justify-center {
+    justify-content: center; /* Horizontally center the items inside the button */
+  }
+  
+  .w-10 {
+    width: 2.5rem;
+  }
+  
+  .h-10 {
+    height: 2.5rem;
+  }
+  
+  .z-20 {
+    z-index: 20; /* High stacking order for navigation buttons */
+  }
+  
+  .hover\:bg-gray-100:hover {
+    background-color: #f7fafc; /* Light gray background on hover */
+  }
+  
+  /* SVG Icon Styling */
+  .h-6 {
+    height: 1.5rem; /* Icon size */
+  }
+  
+  .w-6 {
+    width: 1.5rem; /* Icon size */
+  }
+  
+  .text-gray-700 {
+    color: #4a4a4a; /* Text icon color */
+  }
+  
+  /* Styling for the banner image */
+  .object-cover {
+    object-fit: cover; /* Ensure the image fills the container */
+  }
+  
+  .rounded-lg {
+    border-radius: 0.5rem; /* Rounded corners for the image */
+  }
+  
+  /* Indicator styling */
+  .absolute {
+    position: absolute;
+  }
+  
+  .bottom-4 {
+    bottom: 1rem; /* Position at the bottom */
+  }
+  
+  .left {
+    left: 50%; /* Center horizontally */
+  }
+  
+  .transform {
+    transform: transform;
+  }
+  
+  .-translate {
+    transform: translateX(-50%); /* Center horizontally */
+  }
+  
+  .space-x-2 {
+    margin-right: 0.5rem; /* Horizontal space between indicator buttons */
+  }
+  
+  .bg-white {
+    background-color: white;
+  }
+  
+  .bg-gray-400 {
+    background-color: #b5b5b5; /* Gray color for inactive indicators */
+  }
+  
+  /* Indicator button styles */
+  .w-2 {
+    width: 0.5rem;
+  }
+  
+  .h-2 {
+    height: 0.5rem;
+  }
+  
+  .rounded-full {
+    border-radius: 9999px; /* Fully rounded indicators */
+  }
+  
+
+  .mt-35 {
+    margin-top: 350px;
+  }
+
+  .ml-11{
+    margin-left: 110px;
+  }
+
+.bottom-4{
+  bottom: 1rem;
+}
+.left{
+  left: 50%;
+}
+.transform{
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.translate-x{
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.flex{
+  display: flex;
+}
+.space-x-2{
+  column-gap: 0.5rem;
+}
+.z-10{
+  z-index: 10;
+}
+
+.top-1{
+    top: 0.25rem;
+}
+
+.bottom-460{
+    bottom: -460px; 
+}

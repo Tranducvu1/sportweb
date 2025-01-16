@@ -25,3 +25,14 @@ ul.errors li { padding: 10px 10px 0 10px; color: red; }
     margin: 0 5px 0 0;
     color: #fff;
 }
+
+.main-content-login{
+margin-top: -400px;
+margin-left: 250px;
+padding: 20px;
+flex: 1 1;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}

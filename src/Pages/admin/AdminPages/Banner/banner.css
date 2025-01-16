@@ -160,45 +160,18 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
-.main-content {
-  margin-top: 20px;
-  margin-left: 250px; /* Width of the sidebar */
-  padding: 20px;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+
+
+/* Thêm kiểu cho hình ảnh */
+td img {
+  width: 500px; /* Giới hạn chiều rộng */
+  height: auto; /* Tự động điều chỉnh chiều cao */
+  object-fit: cover; /* Giữ đúng tỉ lệ */
+  border-radius: 5px; /* Thêm góc bo tròn cho ảnh */
 }
 
-.object-cover {
-  width: 100%; /* Maintain the full width of the image */
-  height: 675px; /* Reduce the height to 10% of the original height */
-  object-fit: cover; /* Ensure the aspect ratio is respected and it doesn't get distorted */
+/* Hạn chế modal không chiếm toàn bộ chiều cao */
+.modal-content {
+  max-height: 80vh; /* Không vượt quá 80% màn hình */
+  overflow-y: auto; /* Kích hoạt cuộn dọc */
 }
-
-.object-cover1 {
-  width: 100%; /* Maintain the full width of the image */
-  height: 300px; /* Reduce the height to 10% of the original height */
-  object-fit: cover; /* Ensure the aspect ratio is respected and it doesn't get distorted */
-}
-
-
-.navbar-fixed-top {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1030;
-}
-
-.container-content {
-  margin-top: 70px; /* Khoảng cách dưới Header */
-  padding: 20px;
-}
-
-.table img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-}
-

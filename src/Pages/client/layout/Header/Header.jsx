@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Navigation from './Navigation';
-import SearchBar from './SearchBar';
-import CartIcon from './CartIcon';
+import Navigation from './ItemMenu/Navigation';
+import SearchBar from './SearchBar/SearchBar';
+import CartIcon from './ItemMenu/CartIcon';
 import MobileMenu from './MobileMenu';
-import LanguageSelector from './LanguageSelector';
+import LanguageSelector from './ItemMenu/LanguageSelector';
 import '../../../../css general/css/bootstrap/bootstrap-3.3.5.min5e1f.css';
 import '../../../../css general/css/skinc164.css';
 import '../../../../css general/css/font-awesome.min5e1f.css';
@@ -14,6 +14,11 @@ import '../../../../css general/tp/T0194/css/stores/280221bce.css';
 import '../../../../css general/tp/T0194/css/owl.carousel.min1bce.css';
 import '../../../../css general/tp/T0194/css/stores/430171bce.css';
 import '../../../../css general/tp/T0194/css/mycss1bce.css';
+import "../Header/Header.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'animate.css/animate.min.css';
+import httpRequest from '../../../../utils/httpRequest';
+import '../Header/Header.css';
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);

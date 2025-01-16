@@ -23,11 +23,12 @@ function LoginPage(){
   return (
     <div>
     <Header />
-    <div className="main-content">
+    <div className="main-content-login">
       <div id="customer-login" style={{ padding: '30px 0' }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                
                 <LoginForm />
                 <AuthButtons />
             </div>
