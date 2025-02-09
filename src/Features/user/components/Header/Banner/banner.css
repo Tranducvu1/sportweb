@@ -2,11 +2,7 @@
 .relative {
     position: relative; /* Allows for absolute positioning of child elements */
   }
-  
-  .w-full {
-    width: 100%;
-  }
-  
+
   .h-64 {
     height: 16rem; /* Base height for the carousel */
   }
@@ -170,9 +166,7 @@
   --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.flex{
-  display: flex;
-}
+
 .space-x-2{
   column-gap: 0.5rem;
 }

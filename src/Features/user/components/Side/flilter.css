@@ -1,0 +1,65 @@
+
+/* Global Tailwind-like custom styles */
+@layer components {
+  .filter-sidebar {
+    @apply bg-white shadow-lg rounded-lg w-72 p-4;
+  }
+
+  .filter-section-header {
+    @apply w-full flex justify-between items-center hover:bg-gray-50 p-2 rounded;
+  }
+
+  .filter-section-title {
+    @apply font-medium text-gray-700;
+  }
+
+  .filter-checkbox-label {
+    @apply flex items-center space-x-2 hover:bg-gray-100 p-2 rounded cursor-pointer;
+  }
+
+  .filter-checkbox {
+    @apply rounded border-gray-300 text-blue-600 focus:ring-blue-500;
+  }
+
+  .color-option {
+    @apply w-8 h-8 rounded-full cursor-pointer hover:scale-110 transition-transform;
+  }
+
+  .color-option-selected {
+    @apply ring-2 ring-blue-500;
+  }
+
+  .size-button {
+    @apply px-4 py-2 border rounded-md transition-all;
+  }
+
+  .size-button-selected {
+    @apply bg-blue-500 text-white;
+  }
+
+  .size-button-unselected {
+    @apply hover:bg-gray-100 text-gray-700;
+  }
+
+  .selected-filter-chip {
+    @apply bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs flex items-center;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .filter-sidebar {
+    @apply w-full;
+  }
+}
+
+/* Accessibility and interaction improvements */
+.filter-checkbox:focus,
+.filter-checkbox:hover {
+  @apply ring-2 ring-blue-300 border-blue-500;
+}
+
+/* Animation for smooth interactions */
+.filter-section-content {
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+}

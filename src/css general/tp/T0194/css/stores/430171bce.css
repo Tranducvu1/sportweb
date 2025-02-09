@@ -716,7 +716,7 @@ a.deactive{
         padding: 0 50px;
     }
 }
-.searchform__desktop{
+#searchform__desktop{
     position: relative;
     width: 270px;
     font-size: 14px;

@@ -1,0 +1,53 @@
+/* Product List Container */
+.product-list-container {
+    display: flex;
+    gap: 1.5rem; /* Space between sidebar and grid */
+    flex-direction: column; /* Stacked vertically by default */
+    padding-left: 16.25rem; /* Custom padding for left side */
+  }
+  
+  @media screen and (min-width: 768px) {
+    /* For medium and larger screens, change layout to row */
+    .product-list-container {
+      flex-direction: row;
+    }
+  }
+  
+  /* Sidebar Section */
+  .w-64 {
+    width: 16rem; /* Fixed width for sidebar */
+    flex-shrink: 0; /* Prevent shrinking */
+  }
+  
+  .sidebar {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+ 
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to 1 column */
+    gap: 1rem; /* Space between product cards */
+  }
+  
+  @media screen and (min-width: 768px) {
+    .grid-cols-2 {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .grid-cols-3 {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns for large screens */
+    }
+  }
+  
+  @media screen and (min-width: 1280px) {
+    .grid-cols-4 {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns for extra large screens */
+    }
+  }
+  

@@ -1,9 +1,5 @@
 import React from 'react';
 import { Heart, ShoppingBag } from 'lucide-react';
-import '../../../../css general/css/bootstrap/bootstrap-3.3.5.min5e1f.css';
-import '../../../../css general/css/skinc164.css';
-import '../../../..css general/css/font-awesome.min5e1f.css';
-import '../../../..css general/tp/T0194/css/style1bce.css';
 import './login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 const UserMenu = () => {

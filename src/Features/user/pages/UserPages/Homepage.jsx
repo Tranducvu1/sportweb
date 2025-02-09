@@ -7,22 +7,19 @@ import SectionMale from './SectionMale/SectionMale';
 import SectionFemale from './SectionFemale/SectionFemale';
 import SectionNew from './SectionNew/SectionNew';
 import SectionHot from './SectionHot/SectionHot';
+// css file
 import './index.css';
+import './global.style.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// Các file CSS bên dưới đã bị trùng lặp, chỉ cần giữ lại một lần.
 import '../../../../css general/css/bootstrap/bootstrap-3.3.5.min5e1f.css';
 import '../../../../css general/css/skinc164.css';
-import '../../../../css general/css/font-awesome.min5e1f.css';
 import '../../../../css general/tp/T0194/css/style1bce.css';
 import '../../../../css general/tp/T0194/css/responsive1bce.css';
-import '../../../../css general/tp/T0194/css/style_fashion1bce.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../../../css general/tp/T0194/css/base1bce.css';
 import '../../../../css general/tp/T0194/css/stores/430171bce.css';
 import '../../../../css general/tp/T0194/css/jqui1bce.css';
-import '../../../../css general/tp/T0194/css/style1bce.css';
-import '../../../../css general/tp/T0194/css/style_fashion1bce.css';
-import '../../../../css general/tp/T0194/css/responsive1bce.css';
-import '../../../../css general/tp/T0194/css/stores/430171bce.css';
-// import '../client/layout/Header/Banner/banner.css';
 
 const Homepage = () => {
   const [categories, setCategories] = useState([]);
@@ -42,22 +39,22 @@ const Homepage = () => {
 
   const fetchProducts = async () => {
     const response = await get('mathang/filter?pageSize=12');
-   if(!response?.content) return;
-   const sortBygiamgia = [...response.content].sort((a,b) =>{
-    return (b.giamgia || 0) - (a.giamgia || 0);
-   })
-   const sortByngaythem = [...response.content].sort((a,b) => {
-    return new Date(b.ngaythem) - new Date(a.ngaythem); 
-   })
+    if(!response?.content) return;
+    const sortBygiamgia = [...response.content].sort((a,b) =>{
+      return (b.giamgia || 0) - (a.giamgia || 0);
+    });
+    const sortByngaythem = [...response.content].sort((a,b) => {
+      return new Date(b.ngaythem) - new Date(a.ngaythem); 
+    });
 
-   const hotProduct = new Set(sortBygiamgia.slice(0,5).map(p => p.id))
-   const newProducts = new Set(sortByngaythem.slice(0, 5).map(p => p.id));
-   const  productsWithFlags = response.content.map(product => ({
-    ...product,
-    isHot : hotProduct.has(product.id),
-    isNew : newProducts.has(product.id)
-   }))
-   setProducts(productsWithFlags);
+    const hotProduct = new Set(sortBygiamgia.slice(0,5).map(p => p.id));
+    const newProducts = new Set(sortByngaythem.slice(0, 5).map(p => p.id));
+    const  productsWithFlags = response.content.map(product => ({
+      ...product,
+      isHot : hotProduct.has(product.id),
+      isNew : newProducts.has(product.id)
+    }));
+    setProducts(productsWithFlags);
   };
 
   const getProductGroups = () => {
@@ -75,13 +72,12 @@ const Homepage = () => {
       <Header categories={categories} />
       <BannerCarousel banners={banners} />
       
-      <main className="container-homepage mx-auto px-4 py-8">
+      <main className="container-homepage mx-auto px-4 ">
         <SectionHot products={hotProducts} />
         <SectionNew products={newProducts} />
         <SectionMale products={maleProducts} />
         <SectionFemale products={femaleProducts} />
       </main>
-
       <Footer />
     </div>
   );

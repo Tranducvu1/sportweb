@@ -62,7 +62,7 @@ const ProductSection = () => {
     if (products.length === 0) {
       return <p className="text-center text-gray-600 py-4">Không có sản phẩm phù hợp</p>;
     }
-
+    
     const getProductGroups = () => {
       const hotProducts = products.filter(product => product.isHot);
       const newProducts = products.filter(product => product.isNew);

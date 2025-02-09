@@ -177,12 +177,6 @@ body {
   object-fit: cover; /* Ensure the aspect ratio is respected and it doesn't get distorted */
 }
 
-.object-cover1 {
-  width: 100%; /* Maintain the full width of the image */
-  height: 300px; /* Reduce the height to 10% of the original height */
-  object-fit: cover; /* Ensure the aspect ratio is respected and it doesn't get distorted */
-}
-
 
 .navbar-fixed-top {
   position: fixed;

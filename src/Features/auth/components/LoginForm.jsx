@@ -11,11 +11,11 @@ const LoginForm = () => {
 
   useEffect(() => {
   
-    const id = localStorage.getItem('id');
+ 
     const hoten = localStorage.getItem('hoten');
     const emailStored = localStorage.getItem('email');
     const access_token = localStorage.getItem('access_token');
-    if (id && hoten && emailStored && access_token) {
+    if ( hoten && emailStored && access_token) {
       const role = localStorage.getItem('role');
       if (role === "ADMIN") {
         navigate(config.routes.admin); 
@@ -30,8 +30,7 @@ const LoginForm = () => {
 
     try {
       const response = await axios.post('http://localhost:4444/api/v1/auth/login', { email, password });
-      const { access_token, role, id, hoten, refresh_token } = response.data;
-      localStorage.setItem('id', id);
+      const { access_token, role, hoten, refresh_token } = response.data;
       localStorage.setItem('hoten', hoten);
       localStorage.setItem('email', email);
       localStorage.setItem('access_token', access_token);
@@ -55,9 +54,9 @@ const LoginForm = () => {
   return (
     <div className="login_site">
       <div className="content">
-        <h2>Đăng nhập</h2>
+        <h2 className='text-4xl'>Đăng nhập</h2>
         {errorMessage && <div className="error-message" style={{ color: 'red' }}>{errorMessage}</div>}
-        <form id="loginForm" onSubmit={handleSubmit}>
+        <form id="loginForm" className='mt-10' onSubmit={handleSubmit}>
           <ul>
             <li>
               <input
@@ -82,8 +81,14 @@ const LoginForm = () => {
               />
             </li>
             <li className="btns">
-              <button type="submit" className="login_sign">Đăng nhập</button>
-            </li>
+            <button 
+            type="submit" 
+            className="mt-8 bg-blue-600 hover:bg-blue-700 text-white text-3xl font-bold py-4 px-8 rounded-full transition duration-300"
+          >
+            Đăng nhập
+          </button>
+
+                </li>
           </ul>
         </form>
         <a href="getpassword.html" style={{ textDecoration: 'underline', fontWeight: 'bold', color: '#000' }}>

@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 
-function CartIcon({ count }){
+function CartIcon(){
     <li>
       <Link to="/cart">
         <div className="cart-icon">
@@ -9,7 +9,6 @@ function CartIcon({ count }){
         </div>
         <div className="cart-title">
           <span className="cart-count cartCount count_item_pr">
-            {count}
           </span>
         </div>
       </Link>

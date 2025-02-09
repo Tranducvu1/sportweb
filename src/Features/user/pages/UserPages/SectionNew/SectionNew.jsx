@@ -15,7 +15,7 @@ const SectionNew = ({ products }) => {
   )
   return (
     <div className='container mx-auto px-4'>
-      <h1 className="text-2xl font-bold py-4">Sản phẩm nữ</h1>
+      <h1 className="center-text text-2xl font-bold py-4">Sản phẩm nữ</h1>
       <div className="product-grid">
         {displayedProducts.map((product) => (
           <ProductCard key={product.id} 
@@ -30,7 +30,7 @@ const SectionNew = ({ products }) => {
        )}
        {visibleProduct > ITEMS_PER_PAGE && (
         <Button onClick = {reset}>
-          Ẩn đ<i></i>
+          Ẩn đi<i></i>
         </Button>
        )}
       

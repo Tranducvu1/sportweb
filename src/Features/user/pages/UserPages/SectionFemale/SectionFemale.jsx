@@ -16,7 +16,7 @@ const SectionFemale = ({ products }) => {
   )
   return (
     <div className='container mx-auto px-4'>
-      <h1 className="text-2xl font-bold py-4">Sản phẩm nữ</h1>
+      <h1 className="text-2xl font-bold py-4 center-text">Sản phẩm nữ</h1>
       <div className="product-grid">
         {displayedProducts.map((product) => (
           <ProductCard key={product.id} 
