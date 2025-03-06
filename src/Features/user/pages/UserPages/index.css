@@ -297,69 +297,7 @@ body {
     background-color: #0056b3;
   }
   
-    /* Footer styles */
-    .footer {
-      margin-top: 205px;
-      background-color: #333;
-      color: #fff;
-      padding: 30px 0;
-    }
-    footer.fixed {
-      position: relative; /* Không sử dụng fixed nữa */
-      margin-top: auto; /* Đảm bảo footer luôn ở dưới đáy */
-    }
-    
-    
-    .footer .footer-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .footer .footer-links {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-    
-    .footer .footer-links a {
-      color: #fff;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
-    
-    .footer .footer-links a:hover {
-      color: #007bff;
-    }
-    
-    /* Mobile View */
-    @media (max-width: 768px) {
-      .header {
-        padding: 10px;
-      }
-    
-      .footer .footer-container {
-        flex-direction: column;
-        text-align: center;
-      }
-    
-      .footer .footer-links {
-        margin-top: 15px;
-      }
-    
-      .banner-container {
-        height: 300px;
-      }
-    
-      .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      }
-    
-      .product-card img {
-        height: 180px;
-      }
-    }
-    
+ 
 
   /*
   Ssction Male  */
@@ -605,12 +543,7 @@ body {
 .min-h-screen {
   min-height: 100vh; /* Thiết lập chiều cao tối thiểu của thẻ bằng chiều cao của cửa sổ trình duyệt */
 }
-.bread-crumb {
-  background-color: #f4f4f4;
-  padding: 40px 0;
-  background-position: center top;
-  background-repeat: no-repeat;
-}
+
 
 /* Language bar */
 .language {
@@ -653,6 +586,25 @@ body {
   margin: 0 auto;
   padding: 20px;
 }
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap; /* Cho phép xuống dòng nếu không đủ chỗ */
+  justify-content: center; /* Căn giữa các sản phẩm */
+  gap: 20px; /* Tạo khoảng cách giữa các sản phẩm */
+}
+
+.product-card {
+  flex: 1 1 calc(20% - 20px); /* Định nghĩa kích thước mỗi card, 5 cột */
+  max-width: 250px; /* Giới hạn kích thước */
+  min-width: 225px;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
 /* Products discount */
 .product-card {
   border: 1px solid #e0e0e0; /* Đường viền nhẹ cho thẻ sản phẩm */

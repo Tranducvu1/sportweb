@@ -5,11 +5,18 @@ import { Link } from 'react-router-dom';
 import { createUrlSlug } from '../../../../../utils/formaturl';
 
 const ProductCard = memo(({ product }) => {
-  const originalPrice = useMemo(() => {
-    return product.giamgia ? 
-      product.dongia * (1 - product.giamgia / 100) : 
-      null;
-  }, [product.dongia, product.giamgia]);
+
+  const minPrice = useMemo(() => {
+    if (!product.bienthes || product.bienthes.length === 0) {
+      return null;
+    }
+    return Math.min(...product.bienthes.map(variant => variant.price));
+  }, [product.bienthes]);
+
+ 
+  const discountedPrice = useMemo(() => {
+    return product.giamgia ? minPrice * (1 - product.giamgia / 100) : null;
+  }, [minPrice, product.giamgia]);
 
   const urlSlug = createUrlSlug(product.tenmathang);
 
@@ -17,11 +24,10 @@ const ProductCard = memo(({ product }) => {
     <div className="product-card">
       <Link 
         to={`/sport.com/product/${urlSlug}`}
-        state={{ originalName: product.tenmathang }}
-      >
+        state={{ originalName: product.tenmathang }}>
         <div className="product-image-container">
           <ProductImage 
-            src={product.hinhanh} 
+            src={product.hinhanhs?.[0]?.imageUrl || 'https://via.placeholder.com/150'} 
             alt={product.tenmathang} 
           />
           {product.giamgia && (
@@ -31,21 +37,19 @@ const ProductCard = memo(({ product }) => {
           )}
         </div>
         <div className="product-info">
-        <h3 className="product-title">{product.tenmathang}</h3>
-        <div className="price-container">
+          <h3 className="product-title">{product.tenmathang}</h3>
+          <div className="price-container">
           <p className="current-price">
-            {formatPrice(product.dongia)} đ
+            {formatPrice(minPrice)} VNĐ
           </p>
-          {originalPrice && (
-            <>
-              <p className="original-price line-through text-gray-500">
-                {formatPrice(originalPrice)} đ
-              </p>
-            </>
+          {discountedPrice && (
+            <p className="original-price line-through text-gray-500">
+              {formatPrice(discountedPrice)} VNĐ
+            </p>
           )}
-        </div>
-      </div>
 
+          </div>
+        </div>
       </Link>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate thay vì useHistory
+import { useNavigate } from "react-router-dom"; 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import "./Cart.css";
@@ -8,8 +8,7 @@ const Cart = () => {
     const [total, setTotal] = useState(0); //state save total price
     const navigate = useNavigate();  // navigate for redirect to checkout page
 
-    useEffect(() => {
-        
+    useEffect(() => {  
         // Load cart items from localStorage or state management
         const savedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
         setCartItems(savedCartItems);
@@ -55,12 +54,11 @@ const Cart = () => {
                 ) : (
                     <p>Giỏ hàng của bạn trống!</p>
                 )}
-
                 {cartItems.map((item) => (
                     <div className="cart-tbody" key={item.id}>
                         <div className="item-cart">
                             <div style={{ width: "17%" }} className="image">
-                                <img src={`http://localhost:4444${item.hinhanh}`} alt={item.tenmathang} width="120" height="auto" />
+                                <img src={`http://localhost:4444/images/${item.hinhanh}`} alt={item.tenmathang} width="120" height="auto" />
                             </div>
                             <div style={{ width: "33%" }} className="a-center">
                                 <h2 className="product-name">{item.tenmathang}</h2>
@@ -85,9 +83,7 @@ const Cart = () => {
                         </div>
                     </div>
                 ))}
-
             </div>
-
             {cartItems.length > 0 && (
                 <div className="cart-summary">
                     <div className="cart-title">

@@ -1,168 +1,158 @@
-// ListProduct.jsx
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import '../../pages/UserPages/index.css';
-import './ListProduct.css';
-import httpRequest from "../../../../utils/httpRequest";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
-import ProductCard from "../../components/Product/ProductCard/ProductCard";
-import FilterSidebar from "../../components/Side/FilterSidebar";
+import React, { useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
-const ListProduct = () => {
-  const { tendanhmuc } = useParams();
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedFilters, setSelectedFilters] = useState({
-    gender: [],
-    sizes: [],
-    priceRanges: []
+const FILTER_SECTIONS = {
+  GENDER: 'gender',
+  SIZE: 'size',
+  PRICE: 'price'
+};
+
+const SIZES = ['S', 'M', 'L', 'XL'];
+
+const PRICE_RANGES = [
+  { label: 'Dưới 100.000đ', value: [0, 99999] },
+  { label: '100.000đ - 450.000đ', value: [100000, 450000] },
+  { label: 'Trên 450.000đ', value: [450001, Infinity] }
+];
+
+const GENDERS = [
+  { value: 'female', label: 'Nữ' },
+  { value: 'male', label: 'Nam' }
+];
+
+const FilterSidebar = ({ 
+  onFilterChange = () => console.warn('onFilterChange prop is not provided'), 
+  selectedFilters = {}, 
+  products = []
+}) => {
+  const [openSections, setOpenSections] = useState({
+    [FILTER_SECTIONS.GENDER]: true,
+    [FILTER_SECTIONS.SIZE]: true,
+    [FILTER_SECTIONS.PRICE]: true
   });
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        let tenmathang = localStorage.getItem("nameproducts");
-        console.log("🔍 Từ khóa tìm kiếm:", tenmathang);
+  const filters = {
+    gender: selectedFilters.gender || [],
+    sizes: selectedFilters.sizes || [],
+    priceRanges: selectedFilters.priceRanges || []
+  };
 
-        if (!tenmathang) return;
-
-        setLoading(true);
-        let keywords = [tenmathang];
-        keywords.push(...tenmathang.split(" ").filter((word) => word.length > 1));
-
-        let searchResults = [];
-
-        // Tìm kiếm cả cụm từ trước
-        const responseWhole = await httpRequest.get(
-          `mathang/search/keyword?keyword=${encodeURIComponent(tenmathang)}`
-        );
-        if (responseWhole.data.length > 0) {
-          searchResults = [...searchResults, ...responseWhole.data];
-        }
-
-        // Tìm kiếm từng từ riêng lẻ
-        for (let keyword of keywords) {
-          console.log("🔎 Đang tìm:", keyword);
-          const response = await httpRequest.get(
-            `mathang/search/keyword?keyword=${encodeURIComponent(keyword)}`
-          );
-          console.log(`📌 Kết quả cho "${keyword}":`, response.data);
-
-          if (response.data.length > 0) {
-            searchResults = [...searchResults, ...response.data];
-          }
-        }
-
-        // Loại bỏ sản phẩm trùng lặp
-        const uniqueProducts = Array.from(
-          new Map(searchResults.map(item => [item.id, item])).values()
-        );
-
-        setProducts(uniqueProducts);
-        setFilteredProducts(uniqueProducts);
-        console.log("✅ Danh sách sản phẩm cuối cùng:", uniqueProducts);
-        localStorage.removeItem("nameproducts");
-      } catch (error) {
-        console.error("❌ Lỗi khi lấy danh sách sản phẩm:", error);
-        setProducts([]);
-        setFilteredProducts([]);
-      } finally {
-        setLoading(false);
+  const handleFilterSelection = (type, value) => {
+    try {
+      if (typeof onFilterChange !== 'function') {
+        console.error('onFilterChange must be a function');
+        return;
       }
-    };
 
-    fetchProducts();
-  }, [tendanhmuc]);
+      const currentFilters = filters[type];
 
-  const handleFilterChange = (type, newFilters) => {
-    setSelectedFilters(prev => ({
+      const isSelected = currentFilters.some(
+        (filter) => JSON.stringify(filter) === JSON.stringify(value)
+      );
+
+      const newFilters = isSelected
+        ? currentFilters.filter((filter) => JSON.stringify(filter) !== JSON.stringify(value))
+        : [...currentFilters, value];
+
+      console.log(`Bộ lọc ${type}:`, newFilters);
+
+      onFilterChange(type, newFilters);
+    } catch (error) {
+      console.error('Error in handleFilterSelection:', error);
+    }
+  };
+
+  const toggleSection = (section) => {
+    setOpenSections(prev => ({
       ...prev,
-      [type]: newFilters
+      [section]: !prev[section]
     }));
   };
 
-  // Effect để áp dụng filters
-  useEffect(() => {
-    let result = [...products];
+  const FilterButton = ({ section, label }) => (
+    <button 
+      className="w-full flex justify-between items-center py-2 text-left transition-colors hover:bg-gray-50 rounded"
+      onClick={() => toggleSection(section)}
+    >
+      <span className="font-semibold text-gray-800">{label}</span>
+      {openSections[section] ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+    </button>
+  );
 
-    // Lọc theo giới tính
-    if (selectedFilters.gender.length > 0) {
-      result = result.filter(product => 
-        selectedFilters.gender.includes(product.gender)
-      );
-    }
+  const FilterSection = ({ children, title, section }) => (
+    <div className="border-b border-gray-200 py-3">
+      <FilterButton section={section} label={title} />
+      {openSections[section] && (
+        <div className="mt-3 pl-2">
+          {children}
+        </div>
+      )}
+    </div>
+  );
 
-    // Lọc theo kích thước
-    if (selectedFilters.sizes.length > 0) {
-      result = result.filter(product =>
-        selectedFilters.sizes.includes(product.size)
-      );
-    }
-
-    // Lọc theo giá
-    if (selectedFilters.priceRanges.length > 0) {
-      result = result.filter(product => {
-        const price = product.dongia;
-        return selectedFilters.priceRanges.some(range => {
-          const [min, max] = range.split('-');
-          if (range === '100+') {
-            return price > 100000;
-          }
-          return price >= Number(min) * 1000 && price <= Number(max) * 1000;
-        });
-      });
-    }
-
-    setFilteredProducts(result);
-  }, [selectedFilters, products]);
-
-  // Tính toán giá sau khi giảm giá
-  const calculateFinalPrice = (product) => {
-    const discount = product.giamgia || 0;
-    const originalPrice = product.dongia || 0;
-    return originalPrice * (1 - discount / 100);
-  };
-
+  // Added padding-bottom to create more space at the bottom
   return (
-    <div className="mx-auto px-4">
-      <Header />
-      <h3 className="text-2xl font-bold py-4 text-center ml-[210px]">
-        Kết quả tìm kiếm có {filteredProducts.length} sản phẩm phù hợp
-      </h3>
-      <div className="product-list-container flex gap-6 flex-col md:flex-row gap-6 padding-l-260 pt-[100px]">
-        <div className="w-64 flex-shrink-0">
-          <FilterSidebar
-            onFilterChange={handleFilterChange}
-            selectedFilters={selectedFilters}
-          />
-        </div>
-        <div className="ml-[110px]">
-          {loading ? (
-            <p>Đang tải dữ liệu...</p>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {filteredProducts.length > 0 ? (
-                filteredProducts.map((product) => (
-                  <ProductCard 
-                    key={product.id} 
-                    product={{
-                      ...product,
-                      finalPrice: calculateFinalPrice(product)
-                    }} 
-                  />
-                ))
-              ) : (
-                <p>Không có sản phẩm nào phù hợp.</p>
-              )}
-            </div>
-          )}
-        </div>
+    <div className="w-96 bg-white rounded-lg shadow p-5 pb-[100px] sticky top-5 self-start min-h-screen ml-8 -mt-20">
+      <h2 className="text-xl font-bold mb-6 text-gray-900 border-b pb-3">Bộ lọc sản phẩm</h2>
+      <div className="space-y-8">
+        {/* Bộ lọc Giới tính */}
+        <FilterSection title="Giới tính" section={FILTER_SECTIONS.GENDER}>
+          {GENDERS.map(({ value, label }) => (
+            <label key={value} className="flex items-center space-x-4 mb-3 cursor-pointer hover:bg-gray-50 p-1 rounded-lg">
+              <input 
+                type="checkbox"
+                checked={filters.gender.includes(value)}
+                onChange={() => handleFilterSelection('gender', value)}
+                className="w-4 h-4 rounded border-gray-300 accent-blue-500"
+              />
+              <span className="text-gray-700">{label}</span>
+            </label>
+          ))}
+        </FilterSection>
+
+        {/* Bộ lọc Kích thước */}
+        <FilterSection title="Kích thước" section={FILTER_SECTIONS.SIZE}>
+          <div className="flex flex-wrap gap-5">
+            {SIZES.map(size => (
+              <button
+                key={size}
+                onClick={() => handleFilterSelection('sizes', size)}
+                className={`px-4 py-2 border rounded-md transition-colors ${
+                  filters.sizes.includes(size)
+                    ? 'bg-blue-500 text-white border-blue-500'
+                    : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'
+                }`}
+              >
+                {size}
+              </button>
+            ))}
+          </div>
+        </FilterSection>
+
+        {/* Bộ lọc Theo giá */}
+        <FilterSection title="Theo giá" section={FILTER_SECTIONS.PRICE}>
+          <div className="space-y-3">
+            {PRICE_RANGES.map(range => (
+              <label key={range.label} className="flex items-center space-x-4 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                <input
+                  type="checkbox"
+                  checked={filters.priceRanges.some(
+                    (filter) => JSON.stringify(filter) === JSON.stringify(range.value)
+                  )}
+                  onChange={() => handleFilterSelection('priceRanges', range.value)}
+                  className="w-4 h-4 rounded border-gray-300 accent-blue-500"
+                />
+                <span className="text-gray-700">{range.label}</span>
+              </label>
+            ))}
+          </div>
+        </FilterSection>
       </div>
-      <Footer />
+      
+      {/* Added empty div to create additional space at the bottom */}
+      <div className="h-16"></div>
     </div>
   );
 };
 
-export default ListProduct;
+export default FilterSidebar;

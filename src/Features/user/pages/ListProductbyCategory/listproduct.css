@@ -28,8 +28,7 @@
  
   
   .grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Default to 1 column */
+    display: flex;
     gap: 1rem; /* Space between product cards */
   }
   
@@ -48,6 +47,13 @@
   @media screen and (min-width: 1280px) {
     .grid-cols-4 {
       grid-template-columns: repeat(4, 1fr); /* 4 columns for extra large screens */
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .product-list-container {
+      flex-direction: row; /* Chia layout theo hàng ngang */
+      align-items: flex-start; /* Đảm bảo phần nội dung căn theo lề */
     }
   }
   

@@ -13,14 +13,13 @@ const SectionNew = ({ products }) => {
     products.slice(0,visibleProduct),
   [products,visibleProduct]
   )
+
   return (
     <div className='container mx-auto px-4'>
       <h1 className="center-text text-2xl font-bold py-4">Sản phẩm nữ</h1>
       <div className="product-grid">
         {displayedProducts.map((product) => (
-          <ProductCard key={product.id} 
-          product = {product}
-          />
+          <ProductCard key={product.id}  product = {product}/>
         ))}
        </div>
        {visibleProduct < products.length && (
@@ -33,7 +32,6 @@ const SectionNew = ({ products }) => {
           Ẩn đi<i></i>
         </Button>
        )}
-      
       </div>
   );
 };

@@ -4035,11 +4035,6 @@ li.menudon.menu-dropdown-icon .fa {
     float: right
 }
 
-li.menudon.menu-dropdown-icon ul.nav-dropdown {
-    width: 350px;
-    margin: 0;
-    padding: 0;
-}
 
 li.menudon.menu-dropdown-icon ul.nav-dropdown .nav-dropdown-grid {
     width: 100%

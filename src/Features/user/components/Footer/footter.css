@@ -1,55 +1,57 @@
+/* Footer styles */
 .footer {
-    background-color: #f9f9f9;
-    padding: 20px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
-  
+  position: absolute; /* Đặt footer cố định tại đáy */
+  bottom: 0; /* Đảm bảo footer luôn ở đáy */
+  left: 0; /* Đảm bảo footer phủ toàn bộ chiều rộng */
+  width: 100%; /* Đảm bảo footer phủ toàn bộ chiều rộng */
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0; /* Điều chỉnh padding nếu cần */
+  z-index: 1000; /* Đảm bảo footer không bị che khuất */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* Đảm bảo nội dung không bị dính vào các cạnh */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links, .footer-social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a, .social-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-tags {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.footer-link:hover, .social-link:hover {
+  color: #007bff;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
   .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
+    flex-direction: column;
+    text-align: center;
   }
-  
-  .footer-links, .footer-social {
-    margin: 10px 0;
-  }
-  
-  .footer-link {
-    margin: 0 10px;
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  
-  .footer-link:hover {
-    color: #007BFF;
-  }
-  
-  .social-link {
-    display: inline-block;
-    margin: 0 10px;
-    padding: 5px 10px;
-    border-radius: 3px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  
-  .loginFb {
-    background-color: #3B5998;
-  }
-  
-  .loginGg {
-    background-color: #E02F2F;
-  }
-  
-  .social-link i {
-    margin-right: 5px;
+
+  .footer-links {
+    margin-top: 15px;
   }
   
   .footer-tags {
-    margin-top: 20px;
-    font-size: 12px;
-    color: #8c8c8c;
+    margin-top: 15px;
   }
-  
+}

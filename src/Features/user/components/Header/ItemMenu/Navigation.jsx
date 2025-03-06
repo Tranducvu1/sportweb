@@ -18,20 +18,16 @@ const Navigation = () => {
     fetchCategories();
   }, []);
 
-  // Hàm lưu itemSlug vào localStorage
+  
   const saveToLocalStorage = (itemSlug) => {
-    let storedItems = JSON.parse(localStorage.getItem("nameproducts")) || [];
-    if (!storedItems.includes(itemSlug)) {
-      storedItems.push(itemSlug);
-      localStorage.setItem("nameproducts", JSON.stringify(storedItems));
-    }
+    localStorage.setItem("nameproducts", JSON.stringify([itemSlug])); 
   };
 
   return (
     <nav className="ml-[-5rem] mb-[-4rem]">
       <ul className="tp_menu flex gap-4">
         <li className="tp_menu_item menudon uppercase"> 
-          <Link to="/" className="tp_menu_item text-2xl font-bold">
+          <Link to="/sport.com" className="tp_menu_item text-2xl font-bold">
             Giới Thiệu
           </Link>
         </li>
@@ -41,8 +37,10 @@ const Navigation = () => {
           const categorySlug = createUrlSlug(category.tendanhmuc);
           return (
             <li key={category.madanhmuc} className="text-xl menudon tp_menu_item menu-dropdown-icon uppercase"> 
-              <Link to={`/sport.com/category/${categorySlug}`} className="tp_menu_item text-2xl font-bold"
-              onClick={() => saveToLocalStorage(categorySlug)}
+              <Link 
+                to={`/sport.com/category/${categorySlug}`} 
+                className="tp_menu_item text-2xl font-bold"
+                onClick={() => saveToLocalStorage(categorySlug)}
               >
                 {category.tendanhmuc}
                 {category.mathangs?.length > 0 && (
@@ -50,8 +48,7 @@ const Navigation = () => {
                 )}
               </Link>
               {category.mathangs?.length > 0 && (
-                <ul className="absolute left-0 top-full group-hover:block bg-white shadow-lg rounded-lg w-48 py-2 z-50 tp_menu nav-dropdown js-nav-dropdown w-[80%] ">
-                  {/* Lọc ra 5 sản phẩm đầu tiên */}
+                <ul className="absolute left-0 top-full group-hover:block bg-white shadow-lg rounded-lg w-48 py-2 z-50 tp_menu nav-dropdown js-nav-dropdown w-[80%]">
                   {category.mathangs.slice(0, 5).map((item) => {
                     const itemSlug = createUrlSlug(item.tenmathang);
                     return (

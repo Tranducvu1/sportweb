@@ -1,5 +1,5 @@
-
-/* Global Tailwind-like custom styles */
+/* 
+/* Global Tailwind-like custom styles 
 @layer components {
   .filter-sidebar {
     @apply bg-white shadow-lg rounded-lg w-72 p-4;
@@ -46,20 +46,19 @@
   }
 }
 
-/* Responsive adjustments */
+ Responsive adjustments 
 @media (max-width: 640px) {
   .filter-sidebar {
     @apply w-full;
   }
 }
-
-/* Accessibility and interaction improvements */
+ Accessibility and interaction improvements 
 .filter-checkbox:focus,
 .filter-checkbox:hover {
   @apply ring-2 ring-blue-300 border-blue-500;
 }
 
-/* Animation for smooth interactions */
+ Animation for smooth interactions 
 .filter-section-content {
   transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-}
+} */
