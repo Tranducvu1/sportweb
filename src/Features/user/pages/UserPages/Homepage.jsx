@@ -20,6 +20,7 @@ import '../../../../css general/tp/T0194/css/style1bce.css';
 import '../../../../css general/tp/T0194/css/responsive1bce.css';
 import '../../../../css general/tp/T0194/css/stores/430171bce.css';
 import '../../../../css general/tp/T0194/css/jqui1bce.css';
+import AIChatbox from './AIChatbox';
 
 const Homepage = () => {
   const [categories, setCategories] = useState([]);
@@ -79,6 +80,7 @@ const Homepage = () => {
         <SectionFemale products={femaleProducts} />
       </main>
       <Footer />
+      <AIChatbox />
     </div>
   );
 };

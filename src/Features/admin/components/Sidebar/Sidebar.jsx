@@ -14,9 +14,9 @@ const Sidebar = () => {
       title: 'Quản lý Đơn hàng'
     },
     {
-      path: config.routes.product,
+      path: '/admin/product',
       icon: 'glyphicon-folder-open',
-      title: 'Quản lý Sản phẩm'
+      title: 'Quản lý Sản phẩm' 
     },
     {
       path: '/admin/category',
@@ -90,13 +90,8 @@ const Sidebar = () => {
                 <input 
                   type="text" 
                   className="form-control" 
-                  placeholder="Tìm kiếm..." 
+                  placeholder="Thông tin..." 
                 />
-                <span className="input-group-btn">
-                  <button className="btn btn-default">
-                    <span className="glyphicon glyphicon-search"></span>
-                  </button>
-                </span>
               </div>
             </div>
 

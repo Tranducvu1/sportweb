@@ -80,7 +80,7 @@ const CategoryManagement = () => {
         <div>
             <Header />
             <Sidebar />
-            <div className="col-md-9 animated bounce header-h3">
+            <div className="col-md-9 animated bounce header-h3 mt-[50px]">
                 <h3 className="page-header">Quản lý danh mục</h3>
                 <hr />
                 {/* Search category */}

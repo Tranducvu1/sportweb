@@ -16,7 +16,9 @@ const ProductDetaild = () => {
   const [mainImage, setMainImage] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
   const [sizeError, setSizeError] = useState(false);
+  const [colorError, setColorError] = useState(false);
 
   useEffect(() => {
     const getProductByName = async () => {
@@ -55,6 +57,16 @@ const ProductDetaild = () => {
     getProductByName();
   }, [tenmathang]);
 
+  useEffect(() => {
+    if (selectedColor) {
+      const variantWithColor = product?.bienthes?.find(variant => variant.color === selectedColor);
+      if (variantWithColor?.imageUrl) {
+        setMainImage(variantWithColor.imageUrl);
+      }
+    }
+  }, [selectedColor, product]);
+
+
   const generateBreadcrumbs = (productName, categoryName) => [
     { name: "Trang chủ", link: "/sport.com" },
     { name: categoryName, link: `/sport.com/${categoryName}` },
@@ -62,12 +74,25 @@ const ProductDetaild = () => {
   ];
 
   const addCart = () => {
+    let hasError = false;
+    
     if (!selectedSize) {
-      setSizeError(true); // Hiển thị lỗi
-      return;
+      setSizeError(true);
+      hasError = true;
+    } else {
+      setSizeError(false);
     }
     
-    setSizeError(false); // Ẩn lỗi nếu đã chọn size
+    if (!selectedColor) {
+      setColorError(true);
+      hasError = true;
+    } else {
+      setColorError(false);
+    }
+    
+    if (hasError) {
+      return;
+    }
   
     const cartItem = {
       id: product.id,
@@ -76,10 +101,13 @@ const ProductDetaild = () => {
       hinhanh: mainImage,
       soluong: quantity,
       size: selectedSize,
+      color: selectedColor,
     };
   
     const existingCart = JSON.parse(localStorage.getItem("cartItems")) || [];
-    const existingProduct = existingCart.find((item) => item.id === cartItem.id && item.size === cartItem.size);
+    const existingProduct = existingCart.find(
+      (item) => item.id === cartItem.id && item.size === cartItem.size && item.color === cartItem.color
+    );
   
     if (existingProduct) {
       existingProduct.soluong += cartItem.soluong;
@@ -173,25 +201,45 @@ const ProductDetaild = () => {
 
               
               
-              <div className="size-selection">
-                <label className="text-3xl">Chọn size:</label>
-                <div className="size-options mt-5">
-                  {product.bienthes?.map((variant, index) => (
-                    <button
-                      key={index}
-                      className={`size-option ${selectedSize === variant.size ? "selected" : ""}`}
-                      onClick={() => {
-                        setSelectedSize(variant.size);
-                        setSelectedPrice(variant.price);
-                        setSizeError(false);
-                      }}
-                    >
-                      {variant.size}
-                    </button>
-                  ))}
-                </div>
-                {sizeError && <span className="text-red-500">Vui lòng chọn size</span>}
-              </div>
+                  <div className="color-selection mt-5">
+                    <label className="text-3xl">Chọn màu:</label>
+                    <div className="color-options flex gap-2 mt-2">
+                      {[...new Set(product.bienthes?.map(variant => variant.color))].map((color, index) => (
+                        <button
+                          key={index}
+                          className={`color-option w-10 h-10 rounded-full border-2 ${
+                            selectedColor === color ? "border-black" : "border-gray-300"
+                          }`}
+                          style={{ backgroundColor: color }}
+                          onClick={() => {
+                            setSelectedColor(color);
+                            setColorError(false);
+                          }}
+                        />
+                      ))}
+                    </div>
+                    {colorError && <span className="text-red-500">Vui lòng chọn màu sắc</span>}
+                  </div>
+                  
+              <div className="size-selection mt-5">
+                    <label className="text-3xl">Chọn size:</label>
+                    <div className="size-options mt-5">
+                      {product.bienthes?.map((variant, index) => (
+                        <button
+                          key={index}
+                          className={`size-option ${selectedSize === variant.size ? "selected" : ""}`}
+                          onClick={() => {
+                            setSelectedSize(variant.size);
+                            setSelectedPrice(variant.price);
+                            setSizeError(false);
+                          }}
+                        >
+                          {variant.size}
+                        </button>
+                      ))}
+                    </div>
+                    {sizeError && <span className="text-red-500">Vui lòng chọn size</span>}
+                  </div>
 
                   <div className="form-product mt-10">
                 <label className="quantity-label text-3xl">Số lượng :</label>

@@ -16,6 +16,7 @@ import NotFound from "../Features/user/pages/NotFound/NotFound";
 import ProductDetaild from "../Features/user/pages/ProductDetaild/ProductDetaild";
 import Homepage from "../Features/user/pages/UserPages/Homepage";
 import ListProduct from "../Features/user/pages/ListProductbyCategory/ListProduct";
+import OrderManagement from "../Features/admin/AdminPages/Order/OrderManagement";
 
 const publicRoutes = [
     { path : config.routes.login, component : LoginPage },
@@ -36,6 +37,7 @@ const publicRoutes = [
     {path:config.routes.addCategory,component:FromAddCategory},
     {path:config.routes.updateCategory,component:FormUpdateCategory},
     {path : config.routes.usermanager,component:UserManagement},
+    {path:config.routes.order,component:OrderManagement},
 
     
 ] 

@@ -597,7 +597,7 @@ body {
 .product-card {
   flex: 1 1 calc(20% - 20px); /* Định nghĩa kích thước mỗi card, 5 cột */
   max-width: 250px; /* Giới hạn kích thước */
-  min-width: 225px;
+  min-width: 275px;
   background: white;
   padding: 10px;
   border-radius: 8px;

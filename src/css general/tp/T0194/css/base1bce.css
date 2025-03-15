@@ -1,4 +1,4 @@
-*, input, :before, :after {
+/* *, input, :before, :after {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box
@@ -19,7 +19,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 
 audio, canvas, progress, video {
     display: inline-block;
-    vertical-align: baseline
+    vertical-align: baseline;
 }
 
 input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
@@ -4432,4 +4432,4 @@ body {
 
 .awe-section-9 {
     margin-bottom: 0px
-}
+} */

@@ -18,6 +18,10 @@ const routes = {
     notfound : '/sport.com/notfound',
     //search product
     search: '/sport.com/search',
+
+    //order
+    order: '/admin/order',
+    
    //category routes
     category: '/admin/category',
     //category add
@@ -27,7 +31,7 @@ const routes = {
     //banner routes
     banner: '/admin/banner',
     //product reoutes
-    product: '/admin/products',
+    product: '/admin/product',
     addProduct: '/admin/products/add',
     updateproducts: '/admin/products/update/:productId',
     //manager user

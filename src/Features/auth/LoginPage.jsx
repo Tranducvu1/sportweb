@@ -27,10 +27,10 @@ function LoginPage(){
       <div id="customer-login" style={{ padding: '30px 0' }}>
         <div className="container">
           <div className="row">
-            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 mt-[-350px]">
                 
                 <LoginForm />
-                <AuthButtons />
+                <AuthButtons/>
             </div>
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 div_reg_area mt-20">
               <h3>Bạn chưa có tài khoản?</h3>
